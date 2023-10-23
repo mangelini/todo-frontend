@@ -26,7 +26,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const signup = async (username: string) => {
     try {
       const response = await fetch(
-        import.meta.env.VITE_NEST + "auth/regsiter",
+        import.meta.env.VITE_NEST + "auth/register",
         {
           method: "POST",
           body: JSON.stringify({ username }),

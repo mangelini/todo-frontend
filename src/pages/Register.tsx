@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function SignUp() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
+  const auth = useAuth();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -15,7 +16,7 @@ export default function SignUp() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await useAuth().signup(username);
+      await auth.signup(username);
       navigate("/");
     } catch (e) {
       console.log(e);
